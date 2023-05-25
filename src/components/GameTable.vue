@@ -1,39 +1,12 @@
 <template>
   <div>
-    <h1>Game Table</h1>
+    <div v-if="this.$store.state.playerRoster.length > 0">
+    <div >Current Round: {{this.$store.state.currentRound}} </div>
+    <div>Current Dealer: </div>
+    <div>Cards Out: </div>
+    </div>
 
-    <form action="#" class="roster" v-on:submit.prevent="createRoster" v-if="!this.$store.state.playerRoster.length">
-      <div>
-        <label for="#">Player 1</label>
-        <input type="text" v-model="roster[0]" required />
-      </div>
-      <div>
-        <label for="#">Player 2</label>
-        <input type="text" v-model="roster[1]" required />
-      </div>
-      <div>
-        <label for="#">Player 3</label>
-        <input type="text" v-model="roster[2]" required />
-      </div>
-      <div>
-        <label for="#">Player 4</label>
-        <input type="text" v-model="roster[3]" required />
-      </div>
-      <div>
-        <label for="#">Player 5</label>
-        <input type="text" v-model="roster[4]" />
-      </div>
-      <div>
-        <label for="#">Player 6</label>
-        <input type="text" v-model="roster[5]" />
-      </div>
-      <div>
-        <label for="#">Player 7</label>
-        <input type="text" v-model="roster[6]" />
-      </div>
-      <button type="submit">Start Game</button>
-    </form>
-    <table class="tg">
+    <table class="tg" v-if="this.$store.state.playerRoster.length > 0">
       <thead>
         <tr>
           <th class="tg-0lax">Round</th>
@@ -153,48 +126,14 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      roster: [
-      ],
-    };
-  },
 
-  methods: {
-    createRoster() {
-      this.$store.commit("SET_ROSTER", this.roster);
-      this.roster = [];
-    },
-  },
-};
 </script>
 
 <style scoped>
-.roster {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  width: 10%;
-  align-self: center;
-  text-align: start;
-}
-
-label {
-  margin: 10px;
-}
-
-button {
-  width: 10%;
-  align-self: center;
-  margin: 10px;
-}
-
 .tg {
   border-collapse: collapse;
   border-spacing: 0;
+  
 }
 .tg td {
   border-color: black;
@@ -218,7 +157,12 @@ button {
   word-break: normal;
 }
 .tg .tg-0lax {
-  text-align: left;
+  text-align: center;
   vertical-align: top;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

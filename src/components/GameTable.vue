@@ -1,9 +1,10 @@
 <template>
   <div>
     <div v-if="this.$store.state.playerRoster.length > 0">
-    <div >Current Round: {{this.$store.state.currentRound}} </div>
-    <div>Current Dealer: </div>
-    <div>Cards Out: </div>
+      <div >Current Round: {{this.$store.state.currentRound}} </div>
+      <div>Current Dealer: {{this.$store.state.currentDealer}}</div>
+      <div>Cards Out: {{this.$store.state.handOrder[this.$store.state.cardsOutIndex]}} </div>
+      <button v-on:click="nextRound">Next Round</button>
     </div>
 
     <table class="tg" v-if="this.$store.state.playerRoster.length > 0">
@@ -21,7 +22,17 @@
       </thead>
       <tbody>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[0] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[0] }}</td>
+          <td class="tg-0lax" contenteditable='true'></td>
+          <td class="tg-0lax"><input type="text" /></td>
+          <td class="tg-0lax"></td>
+          <td class="tg-0lax"></td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[1] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -31,7 +42,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[1] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[2] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -41,7 +52,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[2] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[3] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -51,7 +62,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[3] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[4] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -61,7 +72,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[4] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[5] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -71,7 +82,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[5] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[6] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -81,7 +92,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[6] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[7] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -91,7 +102,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[7] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[8] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -101,7 +112,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[8] }}</td>
+          <td class="tg-0lax">{{ this.$store.state.handOrder[9] }}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -111,7 +122,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
         <tr>
-          <td class="tg-0lax">{{ this.$store.state.fourPlayers[9] }}</td>
+          <td class="tg-0lax">Total</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -126,7 +137,14 @@
 </template>
 
 <script>
-
+export default {
+  methods: {
+    nextRound() {
+      this.$store.commit("UPDATE_ROUND");
+      this.$store.commit("UPDATE_DEALER");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -164,5 +182,19 @@
 table{
   margin-left: auto;
   margin-right: auto;
+}
+
+input{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+  width: 30px;
+  align-content: center;
+}
+
+button {
+  width: 10%;
+  align-self: center;
+  margin: 10px;
 }
 </style>

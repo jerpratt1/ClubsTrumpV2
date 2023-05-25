@@ -1,21 +1,29 @@
 <template>
-<div>
-  <form action="#" class="roster" v-on:submit.prevent="createRoster" v-if="!this.$store.state.playerRoster.length">
+  <div>
+    <h2>4-7 Players</h2>
+    <h2>Standard 52 Card Deck Required</h2>
+    <h2><a href="#" target="_blank">Rules</a></h2>
+    <form
+      action="#"
+      class="roster"
+      v-on:submit.prevent="createRoster"
+      v-if="!this.$store.state.playerRoster.length"
+    >
       <div>
         <label for="#">Player 1</label>
-        <input type="text" v-model="roster[0]" required /> 
+        <input type="text" v-model="roster[0]" required />
       </div>
       <div>
         <label for="#">Player 2</label>
-        <input type="text" v-model="roster[1]" required /> 
+        <input type="text" v-model="roster[1]" required />
       </div>
       <div>
         <label for="#">Player 3</label>
-        <input type="text" v-model="roster[2]" required /> 
+        <input type="text" v-model="roster[2]" required />
       </div>
       <div>
         <label for="#">Player 4</label>
-        <input type="text" v-model="roster[3]" required /> 
+        <input type="text" v-model="roster[3]" required />
       </div>
       <div>
         <label for="#">Player 5</label>
@@ -31,15 +39,14 @@
       </div>
       <button type="submit">Start Game</button>
     </form>
-    </div>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      roster: [
-      ],
+      roster: [],
     };
   },
 
@@ -47,6 +54,7 @@ export default {
     createRoster() {
       this.$store.commit("SET_ROSTER", this.roster);
       this.roster = [];
+      this.$store.commit("SET_CURRENT_DEALER");
     },
   },
 };

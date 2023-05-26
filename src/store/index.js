@@ -14,6 +14,7 @@ export default new Vuex.Store({
     currentDealer: "",
     currentDealerIndex: 0,
     cardsOutIndex: 0,
+    
   },
 
   mutations: {

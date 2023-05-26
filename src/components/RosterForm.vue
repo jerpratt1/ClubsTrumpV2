@@ -2,7 +2,7 @@
   <div>
     <h2>4-7 Players</h2>
     <h2>Standard 52 Card Deck Required</h2>
-    <h2><a href="#" target="_blank">Rules</a></h2>
+    <h2><a href="/rules" target="_blank">Rules</a></h2>
     <form
       action="#"
       class="roster"

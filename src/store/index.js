@@ -14,6 +14,15 @@ export default new Vuex.Store({
     currentDealer: "",
     currentDealerIndex: 0,
     cardsOutIndex: 0,
+    rounds: {
+      player1: [],
+      player2: [],
+      player3: [],
+      player4: [],
+      player5: [],
+      player6: [],
+      player7: [],
+    },
     
   },
 

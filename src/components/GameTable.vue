@@ -20,13 +20,13 @@
         <tbody>
           <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[this.$store.state.cardsOutIndex] }}</td>
-          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="rounds.round1[0]" ></td>
-          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="rounds.round1[1]"></td>
-          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="rounds.round1[2]"></td>
-          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="rounds.round1[3]"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"><input type="number" min="0" max="10" v-model="rounds.round1[4]"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"><input type="number" min="0" max="10" v-model="rounds.round1[5]"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"><input type="number" min="0" max="10" v-model="rounds.round1[6]"></td>
+          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="this.$store.state.rounds.player1[0]" ></td>
+          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="this.$store.state.rounds.player2[0]"></td>
+          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="this.$store.state.rounds.player3[0]"></td>
+          <td class="tg-0lax"><input type="number" min="0" max="10" v-model="this.$store.state.rounds.player4[0]"></td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"><input type="number" min="0" max="10" v-model="this.$store.state.rounds.player5[0]"></td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"><input type="number" min="0" max="10" v-model="this.$store.state.rounds.player6[0]"></td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"><input type="number" min="0" max="10" v-model="this.$store.state.rounds.player7[0]"></td>
         </tr>
         </tbody>
       </table>
@@ -49,107 +49,107 @@
       <tbody>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[0] }}</td>
-          <td class="tg-0lax">{{this.rounds.round1[0]}}</td>
-          <td class="tg-0lax">{{this.rounds.round1[1]}}</td>
-          <td class="tg-0lax">{{this.rounds.round1[2]}}</td>
-          <td class="tg-0lax">{{this.rounds.round1[3]}}</td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.rounds.round1[4]}}</td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.rounds.round1[5]}}</td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.rounds.round1[6]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[0]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[0]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[0]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[0]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[0]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[0]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[0]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[1] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[1]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[1]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[1]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[1]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[1]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[1]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[1]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[2] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[2]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[2]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[2]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[2]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[2]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[2]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[2]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[3] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[3]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[3]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[3]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[3]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[3]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[3]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[3]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[4] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[4]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[4]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[4]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[4]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[4]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[4]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[4]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[5] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[5]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[5]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[5]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[5]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[5]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[5]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[5]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[6] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[6]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[6]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[6]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[6]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[6]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[6]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[6]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[7] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[7]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[7]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[7]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[7]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[7]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[7]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[7]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[8] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[8]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[8]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[8]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[8]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[8]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[8]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[8]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">{{ this.$store.state.handOrder[9] }}</td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5"></td>
-          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player1[9]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player2[9]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player3[9]}}</td>
+          <td class="tg-0lax">{{this.$store.state.rounds.player4[9]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 4">{{this.$store.state.rounds.player5[9]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 5">{{this.$store.state.rounds.player6[9]}}</td>
+          <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6">{{this.$store.state.rounds.player7[9]}}</td>
         </tr>
         <tr>
           <td class="tg-0lax">Total</td>
-          <td class="tg-0lax"></td>
+          <td class="tg-0lax">{{p1Total}}</td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
           <td class="tg-0lax"></td>
@@ -166,20 +166,18 @@
 export default {
   data() {
     return {
-      rounds: {
-        round1: [],
-        round2: [],
-        round3: [],
-        round4: [],
-        round5: [],
-        round6: [],
-        round7: [],
-        round8: [],
-        round9: [],
-        round10: []
-      }
-      
+        
     };
+  },
+
+  computed : {
+    p1Total(){
+      let total = 0;
+      this.$store.state.rounds.player1.forEach(element => {
+        total = total + element;
+      });
+      return total;
+    }
   },
 
 

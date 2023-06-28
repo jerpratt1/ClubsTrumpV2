@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/game">Game</router-link> |
       <router-link to="/rules"> Rules </router-link>
+      <router-link to="/test"> Test </router-link>
     </nav>
     <router-view/>
   </div>

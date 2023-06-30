@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="this.$store.state.playerRoster.length > 0">
+    <!-- <div v-if="this.$store.state.playerRoster.length > 0">
       <div >Current Round: {{this.$store.state.currentRound}} </div>
       <div>Current Dealer: {{this.$store.state.currentDealer}}</div>
       <div>Cards Out: {{this.$store.state.handOrder[this.$store.state.cardsOutIndex]}} </div>
@@ -158,7 +158,7 @@
           <td class="tg-0lax" v-if="this.$store.state.playerRoster.length > 6"></td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </template>
 

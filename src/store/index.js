@@ -5,7 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    playerRoster: [],
+    playerRoster: {},
+    showRosterForm: true,
+    currentCardsOut: 0,
     handOrder: [],
     fourPlayers: [10,9,8,7,6,5,4,3,2,1],
     sixPlayers: [6,7,8,7,6,5,4,3,2,1],
@@ -14,7 +16,16 @@ export default new Vuex.Store({
     currentDealer: "",
     currentDealerIndex: 0,
     cardsOutIndex: 0,
-    rounds: {
+    calls: {
+      player1: [],
+      player2: [],
+      player3: [],
+      player4: [],
+      player5: [],
+      player6: [],
+      player7: [],
+    },
+    made: {
       player1: [],
       player2: [],
       player3: [],
@@ -60,7 +71,17 @@ export default new Vuex.Store({
         state.currentRound = "GAME OVER"
 
       }
+    },
+    UPDATE_CALLS(state, calls){
+      state.calls = calls;
+    },
+    UPDATE_MADE(state, made){
+      state.made = made;
+    },
+    UPDATE_CURRENT_CARDS_OUT(state, cards){
+      state.currentCardsOut = cards;
     }
+    
   }
 
 

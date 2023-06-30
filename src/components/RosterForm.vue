@@ -7,35 +7,35 @@
       action="#"
       class="roster"
       v-on:submit.prevent="createRoster"
-      v-if="!this.$store.state.playerRoster.length"
+      v-if="showRosterForm == true"
     >
       <div>
         <label for="#">Player 1</label>
-        <input type="text" v-model="roster[0]" required />
+        <input type="text" v-model="roster.player1.name" required />
       </div>
       <div>
         <label for="#">Player 2</label>
-        <input type="text" v-model="roster[1]" required />
+        <input type="text" v-model="roster.player2.name" required />
       </div>
       <div>
         <label for="#">Player 3</label>
-        <input type="text" v-model="roster[2]" required />
+        <input type="text" v-model="roster.player3.name" required />
       </div>
       <div>
         <label for="#">Player 4</label>
-        <input type="text" v-model="roster[3]" required />
+        <input type="text" v-model="roster.player4.name" required />
       </div>
       <div>
         <label for="#">Player 5</label>
-        <input type="text" v-model="roster[4]" />
+        <input type="text" v-model="roster.player5.name" />
       </div>
       <div>
         <label for="#">Player 6</label>
-        <input type="text" v-model="roster[5]" />
+        <input type="text" v-model="roster.player6.name" />
       </div>
       <div>
         <label for="#">Player 7</label>
-        <input type="text" v-model="roster[6]" />
+        <input type="text" v-model="roster.player7.name" />
       </div>
       <button type="submit">Start Game</button>
     </form>
@@ -46,15 +46,54 @@
 export default {
   data() {
     return {
-      roster: [],
+      roster: {
+        player1: {
+          name: "",
+          call: 0,
+          score: 0,
+        },
+        player2: {
+          name: "",
+          call: 0,
+          score: 0,
+        },
+        player3: {
+          name: "",
+          call: 0,
+          score: 0,
+        },
+        player4: {
+          name: "",
+          call: 0,
+          score: 0,
+        },
+        player5: {
+          name: "",
+          call: 0,
+          score: 0,
+        },
+        player6: {
+          name: "",
+          call: 0,
+          score: 0,
+        },
+        player7: {
+          name: "",
+          call: 0,
+          score: 0,
+        }
+      },
+      
+      showRosterForm: true,
     };
   },
 
   methods: {
     createRoster() {
       this.$store.commit("SET_ROSTER", this.roster);
-      this.roster = [];
+      this.roster = {};
       this.$store.commit("SET_CURRENT_DEALER");
+      this.showRosterForm = false;
     },
   },
 };

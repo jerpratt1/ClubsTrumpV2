@@ -7,7 +7,7 @@
                 <th>Dealer Name Goes Here</th>
             </tr>
             <tr>
-                <th >Current Round</th>
+                <th >Round Over</th>
                 <th >{{ this.$store.state.playerRoster.player1.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player2.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player3.name }}</th>
@@ -21,19 +21,19 @@
         <tbody>
             <tr>
                 <td >{{ this.$store.state.fourPlayers[currentRound]}}</td>
-                <td ><input type="number" min="0" max="10" v-model="call1" ></td>
-                <td ><input type="number" min="0" max="10" v-model="call2"></td>
-                <td ><input type="number" min="0" max="10" v-model="call3"></td>
-                <td ><input type="number" min="0" max="10" v-model="call4"></td>
-                <td  v-if="this.$store.state.playerRoster.player5.name != ''"><input type="number" min="0" max="10" v-model="call5"></td>
-                <td  v-if="this.$store.state.playerRoster.player6.name != ''"><input type="number" min="0" max="10" v-model="call6"></td>
-                <td  v-if="this.$store.state.playerRoster.player7.name != ''"><input type="number" min="0" max="10" v-model="call7"></td>
-                <td>{{cardsOut}}</td>
+                <td ><input type="checkbox" v-model="made1" ></td>
+                <td ><input type="checkbox" v-model="made2"></td>
+                <td ><input type="checkbox" v-model="made3"></td>
+                <td ><input type="checkbox" v-model="made4"></td>
+                <td  v-if="this.$store.state.playerRoster.player5.name != ''"><input type="checkbox" v-model="made5"></td>
+                <td  v-if="this.$store.state.playerRoster.player6.name != ''"><input type="checkbox" v-model="made6"></td>
+                <td  v-if="this.$store.state.playerRoster.player7.name != ''"><input type="checkbox" v-model="made7"></td>
+                <td>{{this.$store.state.currentCardsOut}}</td>
             </tr>
          </tbody>
      </table>
      <br/>
-     <button @click="startRound">Start</button>
+     <button @click="endRound">End</button>
     </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     data(){
         return {
             currentRound: 0,
-            calls: {
+            made: {
                 player1: [],
                 player2: [],
                 player3: [],
@@ -51,37 +51,27 @@ export default {
                 player6: [],
                 player7: [],
             },
-            call1: 0,
-            call2: 0,
-            call3: 0,
-            call4: 0,
-            call5: 0,
-            call6: 0,
-            call7: 0,
+            made1: false,
+            made2: false,
+            made3: false,
+            made4: false,
+            made5: false,
+            made6: false,
+            made7: false,
             showForm: true,
         }
     },
 
-    computed: {
-        cardsOut(){
-            let total = parseInt(this.call1) + parseInt(this.call2) + parseInt(this.call3) + 
-            parseInt(this.call4) + parseInt(this.call5) + parseInt(this.call6) + parseInt(this.call7);
-           return total;
-        }
-
-    },
-
     methods: {
-        startRound(){
-            this.calls.player1.push(this.call1);
-            this.calls.player2.push(this.call2);
-            this.calls.player3.push(this.call3);
-            this.calls.player4.push(this.call4);
-            this.calls.player5.push(this.call5);
-            this.calls.player6.push(this.call6);
-            this.calls.player7.push(this.call7);
-            this.$store.commit("UPDATE_CALLS", this.calls);
-            this.$store.commit("UPDATE_CURRENT_CARDS_OUT", this.cardsOut);
+        endRound(){
+            this.made.player1.push(this.made1);
+            this.made.player2.push(this.made2);
+            this.made.player3.push(this.made3);
+            this.made.player4.push(this.made4);
+            this.made.player5.push(this.made5);
+            this.made.player6.push(this.made6);
+            this.made.player7.push(this.made7);
+            this.$store.commit("UPDATE_MADE", this.made);
             /* this.showForm = false; */
             this.currentRound = this.currentRound + 1;
 

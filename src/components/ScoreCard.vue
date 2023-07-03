@@ -15,7 +15,7 @@
       </thead>
       <tbody>
         <tr id="first-hand">
-          <th>{{this.$store.state.fourPlayers[0]}}</th>
+          <th>{{this.$store.state.handOrder[0]}}</th>
           <th>{{this.$store.state.calls.player1[0]}}</th>
           <th>{{this.$store.state.calls.player2[0]}}</th>
           <th>{{this.$store.state.calls.player3[0]}}</th>
@@ -25,7 +25,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[0]}}</th>
         </tr>
         <tr id="second-hand">
-          <th>{{this.$store.state.fourPlayers[1]}}</th>
+          <th>{{this.$store.state.handOrder[1]}}</th>
           <th>{{this.$store.state.calls.player1[1]}}</th>
           <th>{{this.$store.state.calls.player2[1]}}</th>
           <th>{{this.$store.state.calls.player3[1]}}</th>
@@ -35,7 +35,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[1]}}</th>
         </tr>
         <tr id="third-hand">
-          <th>{{this.$store.state.fourPlayers[2]}}</th>
+          <th>{{this.$store.state.handOrder[2]}}</th>
           <th>{{this.$store.state.calls.player1[2]}}</th>
           <th>{{this.$store.state.calls.player2[2]}}</th>
           <th>{{this.$store.state.calls.player3[2]}}</th>
@@ -45,7 +45,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[2]}}</th>
         </tr>
         <tr id="fourth-hand">
-          <th>{{this.$store.state.fourPlayers[3]}}</th>
+          <th>{{this.$store.state.handOrder[3]}}</th>
           <th>{{this.$store.state.calls.player1[3]}}</th>
           <th>{{this.$store.state.calls.player2[3]}}</th>
           <th>{{this.$store.state.calls.player3[3]}}</th>
@@ -55,7 +55,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[3]}}</th>
         </tr>
         <tr id="fifth-hand">
-          <th>{{this.$store.state.fourPlayers[4]}}</th>
+          <th>{{this.$store.state.handOrder[4]}}</th>
           <th>{{this.$store.state.calls.player1[4]}}</th>
           <th>{{this.$store.state.calls.player2[4]}}</th>
           <th>{{this.$store.state.calls.player3[4]}}</th>
@@ -65,7 +65,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[4]}}</th>
         </tr>
         <tr id="sixth-hand">
-          <th>{{this.$store.state.fourPlayers[5]}}</th>
+          <th>{{this.$store.state.handOrder[5]}}</th>
           <th>{{this.$store.state.calls.player1[5]}}</th>
           <th>{{this.$store.state.calls.player2[5]}}</th>
           <th>{{this.$store.state.calls.player3[5]}}</th>
@@ -75,7 +75,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[5]}}</th>
         </tr>
         <tr id="seventh-hand">
-          <th>{{this.$store.state.fourPlayers[6]}}</th>
+          <th>{{this.$store.state.handOrder[6]}}</th>
           <th>{{this.$store.state.calls.player1[6]}}</th>
           <th>{{this.$store.state.calls.player2[6]}}</th>
           <th>{{this.$store.state.calls.player3[6]}}</th>
@@ -85,7 +85,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[6]}}</th>
         </tr>
         <tr id="eighth-hand">
-          <th>{{this.$store.state.fourPlayers[7]}}</th>
+          <th>{{this.$store.state.handOrder[7]}}</th>
           <th>{{this.$store.state.calls.player1[7]}}</th>
           <th>{{this.$store.state.calls.player2[7]}}</th>
           <th>{{this.$store.state.calls.player3[7]}}</th>
@@ -95,7 +95,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[7]}}</th>
         </tr>
         <tr id="ninth-hand">
-          <th>{{this.$store.state.fourPlayers[8]}}</th>
+          <th>{{this.$store.state.handOrder[8]}}</th>
           <th>{{this.$store.state.calls.player1[8]}}</th>
           <th>{{this.$store.state.calls.player2[8]}}</th>
           <th>{{this.$store.state.calls.player3[8]}}</th>
@@ -105,7 +105,7 @@
           <th v-if="this.$store.state.playerRoster.player7.name != ''">{{this.$store.state.calls.player7[8]}}</th>
         </tr>
         <tr id="tenth-hand">
-          <th>{{this.$store.state.fourPlayers[9]}}</th>
+          <th>{{this.$store.state.handOrder[9]}}</th>
           <th>{{this.$store.state.calls.player1[9]}}</th>
           <th>{{this.$store.state.calls.player2[9]}}</th>
           <th>{{this.$store.state.calls.player3[9]}}</th>

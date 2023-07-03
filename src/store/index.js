@@ -7,15 +7,14 @@ export default new Vuex.Store({
   state: {
     playerRoster: {},
     showRosterForm: true,
-    currentCardsOut: 0,
+    showCurrentRound: false,
+    showEndRound: false,
+    currentRound: 0,
+    playerCount:4,
     handOrder: [],
     fourPlayers: [10,9,8,7,6,5,4,3,2,1],
     sixPlayers: [6,7,8,7,6,5,4,3,2,1],
     sevenPlayers: [4,5,6,7,6,5,4,3,2,1],
-    currentRound: 1,
-    currentDealer: "",
-    currentDealerIndex: 0,
-    cardsOutIndex: 0,
     calls: {
       player1: [],
       player2: [],
@@ -40,38 +39,9 @@ export default new Vuex.Store({
   mutations: {
     SET_ROSTER(state, rosterObj){
       state.playerRoster = rosterObj;
-      if(rosterObj.length == 4 || rosterObj.length == 5){
-        state.handOrder = state.fourPlayers;
-      } else if (rosterObj.length == 6){
-        state.handOrder = state.sixPlayers;
-      } else if (rosterObj.length == 7){
-        state.handOrder = state.sevenPlayers;
-      }
-    },
-    SET_CURRENT_DEALER(state){
-      state.currentDealer = state.playerRoster[state.currentDealerIndex]
-    },
-    UPDATE_ROUND(state){
-      if(state.currentRound <= 10){
-        state.currentRound = state.currentRound + 1;
-      state.cardsOutIndex = state.cardsOutIndex + 1;
 
-      }
     },
-    UPDATE_DEALER(state){
-      if(state.currentDealerIndex < state.playerRoster.length - 1 && state.currentRound <= 10){
-              state.currentDealerIndex = state.currentDealerIndex +1;
-                          state.currentDealer = state.playerRoster[state.currentDealerIndex]
-
-      } else if ( state.currentDealerIndex == state.playerRoster.length - 1 && state.currentRound <= 10) {
-      state.currentDealerIndex = 0;
-            state.currentDealer = state.playerRoster[state.currentDealerIndex]
-      } else if (state.currentRound > 10) {
-        state.currentDealer = "GAME OVER";
-        state.currentRound = "GAME OVER"
-
-      }
-    },
+    
     UPDATE_CALLS(state, calls){
       state.calls = calls;
     },
@@ -80,7 +50,89 @@ export default new Vuex.Store({
     },
     UPDATE_CURRENT_CARDS_OUT(state, cards){
       state.currentCardsOut = cards;
+    },
+    TOGGLE_CURRENT_ROUND_FORM(state){
+      if(state.showCurrentRound == true){
+        state.showCurrentRound = false;
+      } else if(state.showCurrentRound == false){
+        state.showCurrentRound = true;
+      }
+    },
+    TOGGLE_END_ROUND_FORM(state){
+      if(state.showEndRound == true){
+        state.showEndRound = false;
+      } else if(state.showEndRound == false){
+        state.showEndRound = true;
+      }
+    },
+
+    TOGGLE_ROSTER_FORM(state){
+      if(state.showRosterForm == true){
+        state.showRosterForm = false;
+      } else if(state.showRosterForm == false){
+        state.showRosterForm = true;
+      }
+    },
+
+    SET_HAND_ORDER(state, count){
+      state.playerCount = count;
+      if(state.playerCount == 4 || state.playerCount == 5){
+        state.handOrder = state.fourPlayers;
+      } else if (state.playerCount == 6){
+        state.handOrder = state.sixPlayers;
+      } else if (state.playerCount == 7){
+        state.handOrder = state.sevenPlayers;
+      }
+    },
+
+    UPDATE_SCORES(state){
+      if(state.calls.player1[state.currentRound] == state.made.player1[state.currentRound]){
+        state.playerRoster.player1.score = state.playerRoster.player1.score + parseInt(state.made.player1[state.currentRound]) + 10;
+      } else {
+        state.playerRoster.player1.score = state.playerRoster.player1.score + parseInt(state.made.player1[state.currentRound]);
+      }
+
+      if(state.calls.player2[state.currentRound] == state.made.player2[state.currentRound]){
+        state.playerRoster.player2.score = state.playerRoster.player2.score + parseInt(state.made.player2[state.currentRound]) + 10;
+      } else {
+        state.playerRoster.player2.score = state.playerRoster.player2.score + parseInt(state.made.player2[state.currentRound]);
+      }
+
+      if(state.calls.player3[state.currentRound] == state.made.player3[state.currentRound]){
+        state.playerRoster.player3.score = state.playerRoster.player3.score + parseInt(state.made.player3[state.currentRound]) + 10;
+      } else {
+        state.playerRoster.player3.score = state.playerRoster.player3.score + parseInt(state.made.player3[state.currentRound]);
+      }
+
+      if(state.calls.player4[state.currentRound] == state.made.player4[state.currentRound]){
+        state.playerRoster.player4.score = state.playerRoster.player4.score + parseInt(state.made.player4[state.currentRound]) + 10;
+      } else {
+        state.playerRoster.player4.score = state.playerRoster.player4.score + parseInt(state.made.player4[state.currentRound]);
+      }
+
+      if(state.calls.player5[state.currentRound] == state.made.player5[state.currentRound]){
+        state.playerRoster.player5.score = state.playerRoster.player5.score + parseInt(state.made.player5[state.currentRound]) + 10;
+      } else {
+        state.playerRoster.player5.score = state.playerRoster.player5.score + parseInt(state.made.player5[state.currentRound]);
+      }
+
+      if(state.calls.player6[state.currentRound] == state.made.player6[state.currentRound]){
+        state.playerRoster.player6.score = state.playerRoster.player6.score + parseInt(state.made.player6[state.currentRound]) + 10;
+      } else {
+        state.playerRoster.player6.score = state.playerRoster.player6.score + parseInt(state.made.player6[state.currentRound]);
+      }
+
+      if(state.calls.player7[state.currentRound] == state.made.player7[state.currentRound]){
+        state.playerRoster.player7.score = state.playerRoster.player7.score + parseInt(state.made.player7[state.currentRound]) + 10;
+      } else {
+        state.playerRoster.player7.score = state.playerRoster.player7.score + parseInt(state.made.player7[state.currentRound]);
+      }
+      
+      state.currentRound++;
     }
+
+
+    
     
   }
 

@@ -7,7 +7,7 @@
       action="#"
       class="roster"
       v-on:submit.prevent="createRoster"
-      v-if="showRosterForm == true"
+      v-if="this.$store.state.showRosterForm == true"
     >
       <div>
         <label for="#">Player 1</label>
@@ -49,52 +49,62 @@ export default {
       roster: {
         player1: {
           name: "",
-          call: 0,
           score: 0,
         },
         player2: {
           name: "",
-          call: 0,
           score: 0,
         },
         player3: {
           name: "",
-          call: 0,
           score: 0,
         },
         player4: {
           name: "",
-          call: 0,
           score: 0,
         },
         player5: {
           name: "",
-          call: 0,
           score: 0,
         },
         player6: {
           name: "",
-          call: 0,
           score: 0,
         },
         player7: {
           name: "",
-          call: 0,
           score: 0,
         }
       },
-      
-      showRosterForm: true,
+      playerCount: 4,
     };
   },
 
   methods: {
     createRoster() {
+      this.countPlayers();
+      this.$store.commit("SET_HAND_ORDER", this.playerCount)
       this.$store.commit("SET_ROSTER", this.roster);
       this.roster = {};
       this.$store.commit("SET_CURRENT_DEALER");
       this.showRosterForm = false;
+      this.$store.commit("TOGGLE_ROSTER_FORM", false);
+      this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", true);
     },
+
+    countPlayers(){
+      if(this.roster.player5.name != ""){
+        this.playerCount++;
+      }
+
+      if(this.roster.player6.name != ""){
+        this.playerCount++;
+      }
+
+      if(this.roster.player7.name != ""){
+        this.playerCount++;
+      }
+    }
   },
 };
 </script>

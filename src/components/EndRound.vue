@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showForm == true" class = "container">
+  <div v-if="this.$store.state.showEndRound == true" class = "container">
     <table>
         <thead>
             <tr>
@@ -20,14 +20,14 @@
         </thead>
         <tbody>
             <tr>
-                <td >{{ this.$store.state.fourPlayers[currentRound]}}</td>
-                <td ><input type="checkbox" v-model="made1" ></td>
-                <td ><input type="checkbox" v-model="made2"></td>
-                <td ><input type="checkbox" v-model="made3"></td>
-                <td ><input type="checkbox" v-model="made4"></td>
-                <td  v-if="this.$store.state.playerRoster.player5.name != ''"><input type="checkbox" v-model="made5"></td>
-                <td  v-if="this.$store.state.playerRoster.player6.name != ''"><input type="checkbox" v-model="made6"></td>
-                <td  v-if="this.$store.state.playerRoster.player7.name != ''"><input type="checkbox" v-model="made7"></td>
+                <td >{{this.$store.state.handOrder[this.$store.state.currentRound]}}</td>
+                <td ><input type="number" min="0" max="10" v-model="made1" ></td>
+                <td ><input type="number" min="0" max="10" v-model="made2"></td>
+                <td ><input type="number" min="0" max="10" v-model="made3"></td>
+                <td ><input type="number" min="0" max="10" v-model="made4"></td>
+                <td  v-if="this.$store.state.playerRoster.player5.name != ''"><input type="number" min="0" max="10" v-model="made5"></td>
+                <td  v-if="this.$store.state.playerRoster.player6.name != ''"><input type="number" min="0" max="10" v-model="made6"></td>
+                <td  v-if="this.$store.state.playerRoster.player7.name != ''"><input type="number" min="0" max="10" v-model="made7"></td>
                 <td>{{this.$store.state.currentCardsOut}}</td>
             </tr>
          </tbody>
@@ -51,14 +51,13 @@ export default {
                 player6: [],
                 player7: [],
             },
-            made1: false,
-            made2: false,
-            made3: false,
-            made4: false,
-            made5: false,
-            made6: false,
-            made7: false,
-            showForm: true,
+            made1: 0,
+            made2: 0,
+            made3: 0,
+            made4: 0,
+            made5: 0,
+            made6: 0,
+            made7: 0,
         }
     },
 
@@ -72,10 +71,10 @@ export default {
             this.made.player6.push(this.made6);
             this.made.player7.push(this.made7);
             this.$store.commit("UPDATE_MADE", this.made);
-            /* this.showForm = false; */
-            this.currentRound = this.currentRound + 1;
-
-        }
+            this.$store.commit("UPDATE_SCORES")
+            this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
+            this.$store.commit("TOGGLE_END_ROUND_FORM", true);
+        },
     },
 
 }

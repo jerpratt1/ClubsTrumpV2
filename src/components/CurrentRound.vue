@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showForm == true" class = "container">
+  <div v-if="this.$store.state.showCurrentRound == true" class = "container">
     <table>
         <thead>
             <tr>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             <tr>
-                <td >{{ this.$store.state.fourPlayers[currentRound]}}</td>
+                <td >{{this.$store.state.handOrder[this.$store.state.currentRound]}}</td>
                 <td ><input type="number" min="0" max="10" v-model="call1" ></td>
                 <td ><input type="number" min="0" max="10" v-model="call2"></td>
                 <td ><input type="number" min="0" max="10" v-model="call3"></td>
@@ -82,7 +82,8 @@ export default {
             this.calls.player7.push(this.call7);
             this.$store.commit("UPDATE_CALLS", this.calls);
             this.$store.commit("UPDATE_CURRENT_CARDS_OUT", this.cardsOut);
-            /* this.showForm = false; */
+            this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
+            this.$store.commit("TOGGLE_END_ROUND_FORM", true);
             this.currentRound = this.currentRound + 1;
 
         }

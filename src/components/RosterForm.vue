@@ -77,14 +77,18 @@ export default {
         }
       },
       playerCount: 4,
+      playerNames: [],
     };
   },
 
   methods: {
     createRoster() {
       this.countPlayers();
-      this.$store.commit("SET_HAND_ORDER", this.playerCount)
+      this.listPlayers();
+      this.$store.commit("SET_NAMES", this.playerNames);
+      this.$store.commit("SET_HAND_ORDER", this.playerCount);
       this.$store.commit("SET_ROSTER", this.roster);
+      this.$store.commit("UPDATE_DEALER");
       this.roster = {};
       this.$store.commit("SET_CURRENT_DEALER");
       this.showRosterForm = false;
@@ -103,6 +107,25 @@ export default {
 
       if(this.roster.player7.name != ""){
         this.playerCount++;
+      }
+    },
+
+    listPlayers(){
+      this.playerNames.push(this.roster.player1.name);
+      this.playerNames.push(this.roster.player2.name);
+      this.playerNames.push(this.roster.player3.name);
+      this.playerNames.push(this.roster.player4.name);
+
+      if(this.roster.player5.name != ""){
+        this.playerNames.push(this.roster.player5.name);
+      }
+
+      if(this.roster.player6.name != ""){
+        this.playerNames.push(this.roster.player6.name);
+      }
+
+      if(this.roster.player7.name != ""){
+        this.playerNames.push(this.roster.player7.name);
       }
     }
   },

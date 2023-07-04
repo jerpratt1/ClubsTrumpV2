@@ -11,6 +11,9 @@ export default new Vuex.Store({
     showEndRound: false,
     currentRound: 0,
     playerCount:4,
+    playerList: [],
+    currentDealer: "",
+    dealerIndex: 0,
     handOrder: [],
     fourPlayers: [10,9,8,7,6,5,4,3,2,1],
     sixPlayers: [6,7,8,7,6,5,4,3,2,1],
@@ -39,18 +42,24 @@ export default new Vuex.Store({
   mutations: {
     SET_ROSTER(state, rosterObj){
       state.playerRoster = rosterObj;
-
     },
     
     UPDATE_CALLS(state, calls){
       state.calls = calls;
     },
+
     UPDATE_MADE(state, made){
       state.made = made;
     },
+
+    SET_NAMES(state, playerNames){
+      state.playerList = playerNames;
+    },
+
     UPDATE_CURRENT_CARDS_OUT(state, cards){
       state.currentCardsOut = cards;
     },
+
     TOGGLE_CURRENT_ROUND_FORM(state){
       if(state.showCurrentRound == true){
         state.showCurrentRound = false;
@@ -58,6 +67,7 @@ export default new Vuex.Store({
         state.showCurrentRound = true;
       }
     },
+
     TOGGLE_END_ROUND_FORM(state){
       if(state.showEndRound == true){
         state.showEndRound = false;
@@ -83,6 +93,15 @@ export default new Vuex.Store({
       } else if (state.playerCount == 7){
         state.handOrder = state.sevenPlayers;
       }
+    },
+
+    UPDATE_DEALER(state){
+      if(state.dealerIndex >= state.playerList.length){
+        state.dealerIndex = 0;
+      }
+      state.currentDealer = state.playerList[state.dealerIndex]
+      state.dealerIndex++;
+      
     },
 
     UPDATE_SCORES(state){

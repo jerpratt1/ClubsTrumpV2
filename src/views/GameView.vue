@@ -1,19 +1,21 @@
 <template>
   <div>
-    <h1>Game Table</h1>
     <roster-form />
-    <game-table />
+    <current-round />
+    <end-round />
+    <score-card />
   </div>
 </template>
 
 <script>
-import GameTable from "@/components/GameTable.vue";
-import RosterForm from "../components/RosterForm.vue";
-
+import RosterForm from '@/components/RosterForm.vue';
+import ScoreCard from "../components/ScoreCard.vue";
+import CurrentRound from '@/components/CurrentRound.vue';
+import EndRound from '@/components/EndRound.vue';
 export default {
-  components: { GameTable, RosterForm },
+  components: { ScoreCard, RosterForm, CurrentRound, EndRound },
 };
 </script>
 
-<style scoped>
+<style>
 </style>

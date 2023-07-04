@@ -4,7 +4,10 @@
         <thead>
             <tr>
                 <th>Current Dealer:</th>
-                <th>Dealer Name Goes Here</th>
+                <th>{{this.$store.state.currentDealer}}</th>
+                <th></th>
+                <th>Dealer Can't Call:</th>
+                <th>{{dealerLimit}}</th>
             </tr>
             <tr>
                 <th >Current Round</th>
@@ -41,7 +44,6 @@
 export default {
     data(){
         return {
-            currentRound: 0,
             calls: {
                 player1: [],
                 player2: [],
@@ -67,6 +69,12 @@ export default {
             let total = parseInt(this.call1) + parseInt(this.call2) + parseInt(this.call3) + 
             parseInt(this.call4) + parseInt(this.call5) + parseInt(this.call6) + parseInt(this.call7);
            return total;
+        },
+
+        dealerLimit(){
+            let limit = this.$store.state.handOrder[this.$store.state.currentRound] - this.cardsOut;
+
+            return limit;
         }
 
     },
@@ -84,8 +92,13 @@ export default {
             this.$store.commit("UPDATE_CURRENT_CARDS_OUT", this.cardsOut);
             this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
             this.$store.commit("TOGGLE_END_ROUND_FORM", true);
-            this.currentRound = this.currentRound + 1;
-
+            this.call1 = 0;
+            this.call2 = 0;
+            this.call3 = 0;
+            this.call4 = 0;
+            this.call5 = 0;
+            this.call6 = 0;
+            this.call7 = 0;
         }
     },
 

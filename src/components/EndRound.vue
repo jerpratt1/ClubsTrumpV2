@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th>Current Dealer:</th>
-                <th>Dealer Name Goes Here</th>
+                <th>{{this.$store.state.currentDealer}}</th>
             </tr>
             <tr>
                 <th >Round Over</th>
@@ -72,8 +72,16 @@ export default {
             this.made.player7.push(this.made7);
             this.$store.commit("UPDATE_MADE", this.made);
             this.$store.commit("UPDATE_SCORES")
+            this.$store.commit("UPDATE_DEALER");
             this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
             this.$store.commit("TOGGLE_END_ROUND_FORM", true);
+            this.made1 = 0;
+            this.made2 = 0;
+            this.made3 = 0;
+            this.made4 = 0;
+            this.made5 = 0;
+            this.made6 = 0;
+            this.made7 = 0;
         },
     },
 

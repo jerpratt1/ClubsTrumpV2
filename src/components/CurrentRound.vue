@@ -10,7 +10,7 @@
                 <th>{{dealerLimit}}</th>
             </tr>
             <tr>
-                <th >Current Round</th>
+                <th>Current Round</th>
                 <th >{{ this.$store.state.playerRoster.player1.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player2.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player3.name }}</th>
@@ -111,6 +111,13 @@ export default {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        border: 3px solid green;
+        padding: 2%;
+        background: #2B7A78;
+        border-radius: 5px;
+    }
+
+    button{
+        margin: 1%;
+        padding: 10px;
     }
 </style>

@@ -94,6 +94,12 @@ export default {
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        border: 3px solid green;
+        padding: 2%;
+        background: #2B7A78;
+        border-radius: 5px;
+    }
+    button{
+        margin: 1%;
+        padding: 10px;
     }
 </style>

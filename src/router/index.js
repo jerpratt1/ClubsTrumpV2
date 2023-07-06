@@ -3,11 +3,18 @@ import VueRouter from 'vue-router'
 import GameView from '../views/GameView.vue'
 import RulesView from '../views/RulesView.vue'
 import AboutView from '../views/AboutView.vue'
+import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  
+
+
+  {
+    path: '/',
+    name: 'home',
+    component: HomeView
+  },
   {
     path: '/about',
     name: 'about',

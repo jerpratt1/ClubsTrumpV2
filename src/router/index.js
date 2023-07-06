@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import GameView from '../views/GameView.vue'
 import RulesView from '../views/RulesView.vue'
-import TestView from '../views/TestView.vue'
 import AboutView from '../views/AboutView.vue'
 
 Vue.use(VueRouter)
@@ -15,7 +14,7 @@ const routes = [
     component: AboutView
   },
   {
-    path: '/',
+    path: '/game',
     name: 'game',
     component: GameView
   },

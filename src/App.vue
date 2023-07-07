@@ -1,14 +1,20 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/game">Game</router-link> |
-      <router-link to="/rules"> Rules </router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <the-header id ="header"/>
     <router-view/>
   </div>
 </template>
+
+<script>
+import TheHeader from './components/TheHeader.vue'
+
+export default {
+  components: { TheHeader },
+
+}
+</script>
+
+
 
 <style>
 /* 
@@ -32,20 +38,6 @@ White #FEFFFF
 
 body{
   background-color: #3AAFA9;
-  background-size: cover;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2B7A78;
-}
-
-nav a.router-link-exact-active {
-  color: #DEF2F1 ;
 }
 
 button{
@@ -53,5 +45,11 @@ button{
   color: #DEF2F1;
   border-radius: 5px;
   border: #2B7A78;
+}
+
+#header{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 </style>

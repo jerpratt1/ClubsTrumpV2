@@ -114,6 +114,26 @@ export default {
         padding: 2%;
         background: #2B7A78;
         border-radius: 5px;
+        max-width: 90%;
+        margin: auto;
+    }
+    
+    input{
+        width: 20%;
+        min-width: 15px;
+        text-align: center;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
     }
 
     button{

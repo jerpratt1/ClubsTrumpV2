@@ -152,18 +152,10 @@ table{
 }
 
 #total{
-background: lightseagreen;
+  background: gray;
 }
 
 #names{
-  background: lightseagreen;
-}
-
-.fell{
-  background: lightcoral;
-}
-
-.made{
-  background: lightgreen;
+  background: gray;
 }
 </style>

@@ -15,7 +15,7 @@
                 <th  v-if="this.$store.state.playerRoster.player5.name != ''">{{ this.$store.state.playerRoster.player5.name }}</th>
                 <th  v-if="this.$store.state.playerRoster.player6.name != ''">{{ this.$store.state.playerRoster.player6.name }}</th>
                 <th  v-if="this.$store.state.playerRoster.player7.name != ''">{{ this.$store.state.playerRoster.player7.name }}</th>
-                <th >Cards Out</th>
+                <th >Over/Under</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
                 <td  v-if="this.$store.state.playerRoster.player5.name != ''"><input type="number" min="0" max="10" v-model="made5"></td>
                 <td  v-if="this.$store.state.playerRoster.player6.name != ''"><input type="number" min="0" max="10" v-model="made6"></td>
                 <td  v-if="this.$store.state.playerRoster.player7.name != ''"><input type="number" min="0" max="10" v-model="made7"></td>
-                <td>{{this.$store.state.currentCardsOut}}</td>
+                <td>{{this.$store.state.currentCardsOut - this.$store.state.handOrder[this.$store.state.currentRound]}}</td>
             </tr>
          </tbody>
      </table>
@@ -97,9 +97,29 @@ export default {
         padding: 2%;
         background: #2B7A78;
         border-radius: 5px;
+        max-width: 90%;
+        margin: auto;
     }
     button{
         margin: 1%;
         padding: 10px;
+    }
+
+    input{
+        width: 20%;
+        min-width: 15px;
+        text-align: center;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
     }
 </style>

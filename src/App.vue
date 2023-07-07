@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <the-header id ="header"/>
-    <router-view/>
+    <router-view id ="router-view"/>
   </div>
 </template>
 
@@ -51,5 +51,10 @@ button{
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+}
+
+#router-view{
+  margin-top: 1%;
+  
 }
 </style>

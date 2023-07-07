@@ -4,6 +4,7 @@
         <li> <router-link to="/">Home</router-link> </li>
         <li> <router-link to="/game">Game</router-link>  </li>
         <li> <router-link to="/rules"> Rules </router-link> </li>
+        <li id="title">Clubs Trump</li>
         <li style="float:right"> <router-link to="/about">About</router-link> </li>
       </ul>
     </nav>
@@ -28,7 +29,6 @@ ul {
 
 li {
   float: left;
-  border-right: 1px solid #bbb;
 }
 
 li a {
@@ -38,6 +38,7 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border-right: 1px solid #bbb;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -52,6 +53,14 @@ li:last-child {
 
 ul li a.router-link-exact-active {
   background-color: #2B7A78 ;
+}
+
+#title{
+  display: block;
+  color: #DEF2F1;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 </style>

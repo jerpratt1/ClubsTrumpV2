@@ -1,15 +1,25 @@
 <template>
+<div>
   <div class="about">
-    <h1 id="title">About this Project</h1>
+    <h1 id="title">About the Developer</h1>
     <img src="https://i.imgur.com/Y90zLHD.jpg" alt="Jeremy Pratt">
-    <div id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+    <div id="text">
+      <p>This site is a project developed by <a href="https://www.linkedin.com/in/jeremy-pratt/" target="_blank">Jeremy Pratt</a> to continue to hone his development skills. Jeremy is a dedicated Software Developer, swift learner, and analytical thinker with a background in data analysis and mortgage compliance. He strives to find business solutions that are efficient, effective, and user friendly.</p>
+    </div>
+    <div id="contact">
+      <contact-form />
+    </div>
   </div>
+  
+</div>  
 </template>
 
 <script>
-export default {
-
-}
+import ContactForm from '@/components/ContactForm.vue'
+  export default{
+  components: { ContactForm },
+    
+  }
 </script>
 
 <style scoped>
@@ -20,6 +30,7 @@ export default {
   grid-template-areas: 
     "title title title"
     "photo main-text main-text"
+    "contact contact contact"
     ;
   width: 80%;
 }
@@ -42,4 +53,11 @@ img{
   border-radius: 50%;
 }
 
+a{
+  text-decoration: none;
+}
+
+#contact{
+  grid-area: contact;
+}
 </style>

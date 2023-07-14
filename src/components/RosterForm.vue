@@ -2,7 +2,7 @@
   <div>
     <h2>4-7 Players</h2>
     <h2>Standard 52 Card Deck Required</h2>
-    <h2><a href="/rules" target="_blank">Rules</a></h2>
+    <!-- <h2><a href="https://beautiful-valkyrie-8c898a.netlify.app/rules" target="_blank">Rules</a></h2> -->
     <form
       action="#"
       class="roster"
@@ -89,6 +89,7 @@ export default {
       this.$store.commit("SET_HAND_ORDER", this.playerCount);
       this.$store.commit("SET_ROSTER", this.roster);
       this.$store.commit("UPDATE_DEALER");
+      this.$store.commit("UPDATE_CALLER");
       this.roster = {};
       this.$store.commit("SET_CURRENT_DEALER");
       this.showRosterForm = false;

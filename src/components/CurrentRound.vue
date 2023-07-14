@@ -3,14 +3,13 @@
     <table>
         <thead>
             <tr>
-                <th>Current Dealer:</th>
-                <th>{{this.$store.state.currentDealer}}</th>
-                <th></th>
-                <th>Dealer Can't Call:</th>
-                <th>{{dealerLimit}}</th>
+                <th>Current Dealer: <p>{{this.$store.state.currentDealer}}</p></th>
+                <th>First To Call: <p>{{this.$store.state.currentCaller}}</p></th>
+                <th>Dealer Can't Call: <p>{{dealerLimit}}</p></th>
+                
             </tr>
             <tr>
-                <th>Current Round</th>
+                <th>Current<br>Round</th>
                 <th >{{ this.$store.state.playerRoster.player1.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player2.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player3.name }}</th>
@@ -53,6 +52,7 @@ export default {
                 player6: [],
                 player7: [],
             },
+            allCalls: [],
             call1: 0,
             call2: 0,
             call3: 0,
@@ -81,14 +81,14 @@ export default {
 
     methods: {
         startRound(){
-            this.calls.player1.push(this.call1);
-            this.calls.player2.push(this.call2);
-            this.calls.player3.push(this.call3);
-            this.calls.player4.push(this.call4);
-            this.calls.player5.push(this.call5);
-            this.calls.player6.push(this.call6);
-            this.calls.player7.push(this.call7);
-            this.$store.commit("UPDATE_CALLS", this.calls);
+            this.allCalls.push(this.call1);
+            this.allCalls.push(this.call2);
+            this.allCalls.push(this.call3);
+            this.allCalls.push(this.call4);
+            this.allCalls.push(this.call5);
+            this.allCalls.push(this.call6);
+            this.allCalls.push(this.call7);
+            this.$store.commit("UPDATE_CALLS", this.allCalls);
             this.$store.commit("UPDATE_CURRENT_CARDS_OUT", this.cardsOut);
             this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
             this.$store.commit("TOGGLE_END_ROUND_FORM", true);
@@ -99,6 +99,7 @@ export default {
             this.call5 = 0;
             this.call6 = 0;
             this.call7 = 0;
+            this.allCalls = [];
         }
     },
 
@@ -116,6 +117,7 @@ export default {
         border-radius: 5px;
         max-width: 90%;
         margin: auto;
+        height: 8rem;
     }
     
     input{
@@ -139,5 +141,6 @@ export default {
     button{
         margin: 1%;
         padding: 10px;
+        width: 3.5rem;
     }
 </style>

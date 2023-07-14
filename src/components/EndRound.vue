@@ -3,11 +3,12 @@
     <table>
         <thead>
             <tr>
-                <th>Current Dealer:</th>
-                <th>{{this.$store.state.currentDealer}}</th>
+                <th>Current Dealer: <p>{{this.$store.state.currentDealer}}</p></th>
+                
+                
             </tr>
             <tr>
-                <th >Round Over</th>
+                <th >Round <br> Over</th>
                 <th >{{ this.$store.state.playerRoster.player1.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player2.name }}</th>
                 <th >{{ this.$store.state.playerRoster.player3.name }}</th>
@@ -15,7 +16,7 @@
                 <th  v-if="this.$store.state.playerRoster.player5.name != ''">{{ this.$store.state.playerRoster.player5.name }}</th>
                 <th  v-if="this.$store.state.playerRoster.player6.name != ''">{{ this.$store.state.playerRoster.player6.name }}</th>
                 <th  v-if="this.$store.state.playerRoster.player7.name != ''">{{ this.$store.state.playerRoster.player7.name }}</th>
-                <th >Over/Under</th>
+                <th >Over/<br>Under</th>
             </tr>
         </thead>
         <tbody>
@@ -73,6 +74,7 @@ export default {
             this.$store.commit("UPDATE_MADE", this.made);
             this.$store.commit("UPDATE_SCORES")
             this.$store.commit("UPDATE_DEALER");
+            this.$store.commit("UPDATE_CALLER");
             this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
             this.$store.commit("TOGGLE_END_ROUND_FORM", true);
             this.made1 = 0;
@@ -99,10 +101,12 @@ export default {
         border-radius: 5px;
         max-width: 90%;
         margin: auto;
+        height: 8rem;
     }
     button{
         margin: 1%;
         padding: 10px;
+        width: 3.5rem;
     }
 
     input{

@@ -1,5 +1,9 @@
 <template>
-  <div class="contact">
+<div>
+
+  
+   <div class="contact">
+    
     <form ref="form" @submit.prevent="sendEmail">
 
     <label>Name: </label>
@@ -11,12 +15,15 @@
     <input type="email" name="user_email" id="email">
     <br>
     <label>Message: </label>
-    <br>
+    
     <input type="text" name="message" id="message">
-    <br>
+    
     <input type="submit" value="Send">
   </form>
   </div>
+
+</div>
+ 
 </template>
 
 <script>
@@ -43,6 +50,10 @@ export default {
     display: flex;
     width: 100%;
     text-align: left;
+    align-items: center;
+    border: gray solid 3px;
+    border-radius: 1rem;
+    padding: 5px;
 }
 
 input{
@@ -55,16 +66,17 @@ input{
 }
 
 #name{
-    width:100%;
+    width:60%;
     align-self: left;
 }
 
 #email{
-    width: 100%;
+    width: 60%;
 }
 
 #message{
-    width: 100%;
+    width: 200%;
+    margin: .5%;
     
 }
 

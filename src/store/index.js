@@ -14,6 +14,8 @@ export default new Vuex.Store({
     playerList: [],
     currentDealer: "",
     dealerIndex: 0,
+    currentCaller: "",
+    callerIndex: 1,
     handOrder: [],
     fourPlayers: [10,9,8,7,6,5,4,3,2,1],
     sixPlayers: [6,7,8,7,6,5,4,3,2,1],
@@ -45,7 +47,13 @@ export default new Vuex.Store({
     },
     
     UPDATE_CALLS(state, calls){
-      state.calls = calls;
+      state.calls.player1.push(calls[0]);
+      state.calls.player2.push(calls[1]);
+      state.calls.player3.push(calls[2]);
+      state.calls.player4.push(calls[3]);
+      state.calls.player5.push(calls[4]);
+      state.calls.player6.push(calls[5]);
+      state.calls.player7.push(calls[6]);
     },
 
     UPDATE_MADE(state, made){
@@ -101,6 +109,15 @@ export default new Vuex.Store({
       }
       state.currentDealer = state.playerList[state.dealerIndex]
       state.dealerIndex++;
+      
+    },
+
+    UPDATE_CALLER(state){
+      if(state.callerIndex >= state.playerList.length){
+        state.callerIndex = 0;
+      }
+      state.currentCaller = state.playerList[state.callerIndex]
+      state.callerIndex++;
       
     },
 

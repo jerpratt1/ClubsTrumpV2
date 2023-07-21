@@ -34,7 +34,7 @@
                 <td  v-if="this.$store.state.playerRoster.player5.name != ''"><input type="number" min="0" max="10" v-model="made5"></td>
                 <td  v-if="this.$store.state.playerRoster.player6.name != ''"><input type="number" min="0" max="10" v-model="made6"></td>
                 <td  v-if="this.$store.state.playerRoster.player7.name != ''"><input type="number" min="0" max="10" v-model="made7"></td>
-                <td>{{this.$store.state.currentCardsOut - this.$store.state.handOrder[this.$store.state.currentRound]}}</td>
+                <td>{{overUnder}}</td>
             </tr>
          </tbody>
      </table>
@@ -47,7 +47,6 @@
 export default {
     data(){
         return {
-            currentRound: 0,
             made: {
                 player1: [],
                 player2: [],
@@ -73,30 +72,41 @@ export default {
             parseInt(this.made4) + parseInt(this.made5) + parseInt(this.made6) + parseInt(this.made7);
            return total;
         },
+
+        overUnder(){
+            let total = this.$store.state.currentCardsOut - this.$store.state.handOrder[this.$store.state.currentRound];
+            return total;
+        }
     },
 
     methods: {
         endRound(){
-            this.made.player1.push(this.made1);
-            this.made.player2.push(this.made2);
-            this.made.player3.push(this.made3);
-            this.made.player4.push(this.made4);
-            this.made.player5.push(this.made5);
-            this.made.player6.push(this.made6);
-            this.made.player7.push(this.made7);
-            this.$store.commit("UPDATE_MADE", this.made);
-            this.$store.commit("UPDATE_SCORES")
-            this.$store.commit("UPDATE_DEALER");
-            this.$store.commit("UPDATE_CALLER");
-            this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
-            this.$store.commit("TOGGLE_END_ROUND_FORM", true);
-            this.made1 = 0;
-            this.made2 = 0;
-            this.made3 = 0;
-            this.made4 = 0;
-            this.made5 = 0;
-            this.made6 = 0;
-            this.made7 = 0;
+
+            if(this.totalMade == this.$store.state.handOrder[this.$store.state.currentRound]){
+                this.made.player1.push(this.made1);
+                this.made.player2.push(this.made2);
+                this.made.player3.push(this.made3);
+                this.made.player4.push(this.made4);
+                this.made.player5.push(this.made5);
+                this.made.player6.push(this.made6);
+                this.made.player7.push(this.made7);
+                this.$store.commit("UPDATE_MADE", this.made);
+                this.$store.commit("UPDATE_SCORES")
+                this.$store.commit("UPDATE_DEALER");
+                this.$store.commit("UPDATE_CALLER");
+                this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
+                this.$store.commit("TOGGLE_END_ROUND_FORM", true);
+                this.made1 = 0;
+                this.made2 = 0;
+                this.made3 = 0;
+                this.made4 = 0;
+                this.made5 = 0;
+                this.made6 = 0;
+                this.made7 = 0;
+            } else {
+                console.log("no")
+            }
+            
         },
     },
 

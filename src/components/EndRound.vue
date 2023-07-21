@@ -4,6 +4,11 @@
         <thead>
             <tr>
                 <th>Current Dealer: <p>{{this.$store.state.currentDealer}}</p></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Account: <p>{{totalMade}}</p></th>
                 
                 
             </tr>
@@ -60,6 +65,14 @@ export default {
             made6: 0,
             made7: 0,
         }
+    },
+
+    computed: {
+        totalMade(){
+            let total = parseInt(this.made1) + parseInt(this.made2) + parseInt(this.made3) + 
+            parseInt(this.made4) + parseInt(this.made5) + parseInt(this.made6) + parseInt(this.made7);
+           return total;
+        },
     },
 
     methods: {

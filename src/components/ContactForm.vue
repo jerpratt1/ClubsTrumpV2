@@ -15,7 +15,7 @@
     <input type="email" name="user_email" id="email">
     <br>
     <label>Message: </label>
-    
+    <br>
     <input type="text" name="message" id="message">
     
     <input type="submit" value="Send">
@@ -62,20 +62,20 @@ input{
     background: #17252A;
     color: #DEF2F1;
     padding: .5rem;
-    margin: .5%;
+    margin: .75%;
 }
 
 #name{
-    width:60%;
+    width:20vw;
     align-self: left;
 }
 
 #email{
-    width: 60%;
+    width: 20vw;
 }
 
 #message{
-    width: 200%;
+    width: 40vw;
     margin: .5%;
     
 }

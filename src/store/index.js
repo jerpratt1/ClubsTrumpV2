@@ -9,6 +9,7 @@ export default new Vuex.Store({
     showRosterForm: true,
     showCurrentRound: false,
     showEndRound: false,
+    showEditScore: false,
     currentRound: 0,
     playerCount:4,
     playerList: [],
@@ -84,6 +85,14 @@ export default new Vuex.Store({
       }
     },
 
+    TOGGLE_EDIT_SCORE_FORM(state){
+      if(state.showEditScore == true){
+        state.showEditScore = false;
+      } else if(state.showEndRound == false){
+        state.showEditScore = true;
+      }
+    },
+
     TOGGLE_ROSTER_FORM(state){
       if(state.showRosterForm == true){
         state.showRosterForm = false;
@@ -119,6 +128,89 @@ export default new Vuex.Store({
       state.currentCaller = state.playerList[state.callerIndex]
       state.callerIndex++;
       
+    },
+
+    EDIT_CALL(state, player, round, newCall){
+      if(player == "player 1"){
+        state.calls.player1[round] == newCall;
+      } else if (player == "player 2"){
+        state.calls.player2[round] == newCall;
+      } else if (player == "player 3"){
+        state.calls.player3[round] == newCall;
+      } else if (player == "player 4"){
+        state.calls.player4[round] == newCall;
+      } else if (player == "player 5"){
+        state.calls.player5[round] == newCall;
+      } else if (player == "player 6"){
+        state.calls.player6[round] == newCall;
+      } else if (player == "player 7"){
+        state.calls.player7[round] == newCall;
+      }
+    },
+
+    EDIT_MAKE(state, player, round, newMake){
+      if(player == "player 1"){
+        state.made.player1[round] == newMake;
+      } else if (player == "player 2"){
+        state.made.player2[round] == newMake;
+      } else if (player == "player 3"){
+        state.made.player3[round] == newMake;
+      } else if (player == "player 4"){
+        state.made.player4[round] == newMake;
+      } else if (player == "player 5"){
+        state.made.player5[round] == newMake;
+      } else if (player == "player 6"){
+        state.made.player6[round] == newMake;
+      } else if (player == "player 7"){
+        state.made.player7[round] == newMake;
+      }
+    },
+
+    RECALCULATE_SCORE(state){
+
+      for (let i = 0; i < 9; i++) {
+        if(state.calls.player1[i] == state.made.player1[i]){
+          state.playerRoster.player1.score = state.playerRoster.player1.score + parseInt(state.made.player1[i]) + 10;
+        } else {
+          state.playerRoster.player1.score = state.playerRoster.player1.score + parseInt(state.made.player1[i]);
+        }
+  
+        if(state.calls.player2[i] == state.made.player2[i]){
+          state.playerRoster.player2.score = state.playerRoster.player2.score + parseInt(state.made.player2[i]) + 10;
+        } else {
+          state.playerRoster.player2.score = state.playerRoster.player2.score + parseInt(state.made.player2[i]);
+        }
+  
+        if(state.calls.player3[i] == state.made.player3[i]){
+          state.playerRoster.player3.score = state.playerRoster.player3.score + parseInt(state.made.player3[i]) + 10;
+        } else {
+          state.playerRoster.player3.score = state.playerRoster.player3.score + parseInt(state.made.player3[i]);
+        }
+  
+        if(state.calls.player4[i] == state.made.player4[i]){
+          state.playerRoster.player4.score = state.playerRoster.player4.score + parseInt(state.made.player4[i]) + 10;
+        } else {
+          state.playerRoster.player4.score = state.playerRoster.player4.score + parseInt(state.made.player4[i]);
+        }
+  
+        if(state.calls.player5[i] == state.made.player5[i]){
+          state.playerRoster.player5.score = state.playerRoster.player5.score + parseInt(state.made.player5[i]) + 10;
+        } else {
+          state.playerRoster.player5.score = state.playerRoster.player5.score + parseInt(state.made.player5[i]);
+        }
+  
+        if(state.calls.player6[i] == state.made.player6[i]){
+          state.playerRoster.player6.score = state.playerRoster.player6.score + parseInt(state.made.player6[i]) + 10;
+        } else {
+          state.playerRoster.player6.score = state.playerRoster.player6.score + parseInt(state.made.player6[i]);
+        }
+  
+        if(state.calls.player7[i] == state.made.player7[i]){
+          state.playerRoster.player7.score = state.playerRoster.player7.score + parseInt(state.made.player7[i]) + 10;
+        } else {
+          state.playerRoster.player7.score = state.playerRoster.player7.score + parseInt(state.made.player7[i]);
+        }
+      }
     },
 
     UPDATE_SCORES(state){

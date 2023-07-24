@@ -36,6 +36,7 @@
      </table>
      <br/>
      <button @click="startRound">Start</button>
+     <button @click="editScore">Edit Score</button>
     </div>
 </template>
 
@@ -100,6 +101,11 @@ export default {
             this.call6 = 0;
             this.call7 = 0;
             this.allCalls = [];
+        },
+
+        editScore(){
+             this.$store.commit("TOGGLE_EDIT_SCORE_FORM", true);
+
         }
     },
 

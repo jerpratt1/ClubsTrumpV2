@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>4-7 Players</h2>
-    <h2>Standard 52 Card Deck Required</h2>
+    <!-- <h2>4-7 Players</h2>
+    <h2>Standard 52 Card Deck Required</h2> -->
     <!-- <h2><a href="https://beautiful-valkyrie-8c898a.netlify.app/rules" target="_blank">Rules</a></h2> -->
     <form
       action="#"
@@ -10,19 +10,19 @@
       v-if="this.$store.state.showRosterForm == true"
     >
       <div>
-        <label for="#">Player 1</label>
+        <label for="#">*Player 1</label>
         <input type="text" v-model="roster.player1.name" required />
       </div>
       <div>
-        <label for="#">Player 2</label>
+        <label for="#">*Player 2</label>
         <input type="text" v-model="roster.player2.name" required />
       </div>
       <div>
-        <label for="#">Player 3</label>
+        <label for="#">*Player 3</label>
         <input type="text" v-model="roster.player3.name" required />
       </div>
       <div>
-        <label for="#">Player 4</label>
+        <label for="#">*Player 4</label>
         <input type="text" v-model="roster.player4.name" required />
       </div>
       <div>
@@ -37,6 +37,7 @@
         <label for="#">Player 7</label>
         <input type="text" v-model="roster.player7.name" />
       </div>
+      <p>*required</p>
       <button type="submit">Start Game</button>
     </form>
   </div>
@@ -91,7 +92,6 @@ export default {
       this.$store.commit("UPDATE_DEALER");
       this.$store.commit("UPDATE_CALLER");
       this.roster = {};
-      this.$store.commit("SET_CURRENT_DEALER");
       this.showRosterForm = false;
       this.$store.commit("TOGGLE_ROSTER_FORM", false);
       this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", true);
@@ -137,6 +137,10 @@ export default {
 .roster {
   display: flex;
   flex-direction: column;
+}
+
+.required {
+  color: red;
 }
 
 input {

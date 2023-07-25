@@ -3,7 +3,7 @@
     <table>
       <thead>
         <tr id="names">
-          <th>Names</th>
+          <th>Players</th>
           <th>{{this.$store.state.playerRoster.player1.name}}</th>
           <th>{{this.$store.state.playerRoster.player2.name}}</th>
           <th>{{this.$store.state.playerRoster.player3.name}}</th>

@@ -36,7 +36,7 @@
      </table>
      <br/>
      <button @click="startRound">Start</button>
-     <button @click="editScore">Edit Score</button>
+     <!-- <button @click="editScore">Edit Score</button> -->
     </div>
 </template>
 

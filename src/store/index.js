@@ -130,39 +130,39 @@ export default new Vuex.Store({
       
     },
 
-    EDIT_CALL(state, player, round, newCall){
-      if(player == "player 1"){
-        state.calls.player1[round] == newCall;
-      } else if (player == "player 2"){
-        state.calls.player2[round] == newCall;
-      } else if (player == "player 3"){
-        state.calls.player3[round] == newCall;
-      } else if (player == "player 4"){
-        state.calls.player4[round] == newCall;
-      } else if (player == "player 5"){
-        state.calls.player5[round] == newCall;
-      } else if (player == "player 6"){
-        state.calls.player6[round] == newCall;
-      } else if (player == "player 7"){
-        state.calls.player7[round] == newCall;
+    EDIT_CALL(state, editForm){
+      if(editForm.playerNumber == "1"){
+        state.calls.player1[parseInt(editForm.roundNumber) - 1] = parseInt(editForm.newCallMake);
+      } else if (editForm.playerNumber == "2"){
+        state.calls.player2[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "3"){
+        state.calls.player3[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "4"){
+        state.calls.player4[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "5"){
+        state.calls.player5[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "6"){
+        state.calls.player6[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "7"){
+        state.calls.player7[editForm.roundNumber] = editForm.newCallMake;
       }
     },
 
-    EDIT_MAKE(state, player, round, newMake){
-      if(player == "player 1"){
-        state.made.player1[round] == newMake;
-      } else if (player == "player 2"){
-        state.made.player2[round] == newMake;
-      } else if (player == "player 3"){
-        state.made.player3[round] == newMake;
-      } else if (player == "player 4"){
-        state.made.player4[round] == newMake;
-      } else if (player == "player 5"){
-        state.made.player5[round] == newMake;
-      } else if (player == "player 6"){
-        state.made.player6[round] == newMake;
-      } else if (player == "player 7"){
-        state.made.player7[round] == newMake;
+    EDIT_MAKE(state, editForm){
+      if(editForm.playerNumber == "1"){
+        state.made.player1[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "2"){
+        state.made.player2[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "3"){
+        state.made.player3[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "4"){
+        state.made.player4[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "5"){
+        state.made.player5[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "6"){
+        state.made.player6[editForm.roundNumber] = editForm.newCallMake;
+      } else if (editForm.playerNumber == "7"){
+        state.made.player7[editForm.roundNumber] = editForm.newCallMake;
       }
     },
 

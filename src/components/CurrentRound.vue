@@ -149,4 +149,8 @@ export default {
         padding: 10px;
         width: 3.5rem;
     }
+
+    button:hover{
+        background-color: #2B7A78 ;
+    }
 </style>

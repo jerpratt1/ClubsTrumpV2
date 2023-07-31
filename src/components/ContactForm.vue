@@ -80,5 +80,8 @@ input{
     
 }
 
+input:hover{
+        background-color: #2B7A78 ;
+    }
 
 </style>

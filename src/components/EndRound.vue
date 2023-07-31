@@ -39,7 +39,7 @@
          </tbody>
      </table>
      <br/>
-     <button @click="endRound">End</button>
+     <button @click="endRound" class="button">End</button>
     </div>
 </template>
 
@@ -126,10 +126,15 @@ export default {
         margin: auto;
         height: 8rem;
     }
+
     button{
         margin: 1%;
         padding: 10px;
         width: 3.5rem;
+    }
+
+    button:hover{
+        background-color: #2B7A78 ;
     }
 
     input{

@@ -81,7 +81,6 @@ export default {
 
     methods: {
         endRound(){
-
             if(this.totalMade == this.$store.state.handOrder[this.$store.state.currentRound]){
                 this.made.player1.push(this.made1);
                 this.made.player2.push(this.made2);
@@ -104,7 +103,7 @@ export default {
                 this.made6 = 0;
                 this.made7 = 0;
             } else {
-                console.log("no")
+                window.confirm("Please ensure all hands are accounted for.")
             }
             
         },

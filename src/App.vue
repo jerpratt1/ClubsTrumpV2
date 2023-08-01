@@ -45,6 +45,7 @@ button{
   color: #DEF2F1;
   border-radius: 5px;
   border: #2B7A78;
+  min-width: 40px;
 }
 
 #header{

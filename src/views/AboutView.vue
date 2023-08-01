@@ -1,12 +1,17 @@
 <template>
 <div>
   <div class="about">
-    <h1 id="title">About the Developer</h1>
-    <img src="https://i.imgur.com/Y90zLHD.jpg" alt="Jeremy Pratt">
-    <div id="text">
-      <p>This site is a project developed by <a href="https://www.linkedin.com/in/jeremy-pratt/" target="_blank">Jeremy Pratt</a> to continue to hone his development skills. Jeremy is a dedicated Software Developer, swift learner, and analytical thinker with a background in data analysis and mortgage compliance. He strives to find business solutions that are efficient, effective, and user friendly.</p>
-      <p>If you would like to check out more of Jeremy's work the link to his portfolio is here: portfolio</p>
-      <p>If you would like to contact jeremy directly you can find him on linked in or you can reach out directly through the contact form below.</p>
+    <div id="site" class="card">
+      <h1 >About the Site</h1>
+      <p>This site emerged from a common issue when playing the card game Clubs Trump with friends—no pen and paper available, or someone not wanting to keep score. The primary goal of this site is to tackle that problem by acting as a scorekeeper for the game.</p>
+      <p> Beyond solving the scorekeeping issue, it also serves as a valuable project for the developer to sharpen their development skills continuously.</p>
+    </div>
+    <!-- <img src="https://i.imgur.com/Y90zLHD.jpg" alt="Jeremy Pratt"> -->
+    <div id="dev" class="card">
+      <h1 >About the Developer</h1>
+      <p>This site is the brainchild of <a href="https://www.linkedin.com/in/jeremy-pratt/" target="_blank">Jeremy Pratt</a>, a dedicated Software Developer with a strong background in data analysis and financial compliance. Jeremy is a swift learner and analytical thinker, constantly refining his development skills to create efficient, effective, and user-friendly business solutions.</p>
+      <p>Explore Jeremy's work in his portfolio: [portfolio link to come]</p>
+      <p>For direct contact, find Jeremy on <a href="https://www.linkedin.com/in/jeremy-pratt/" target="_blank">LinkedIn</a> or use the form below.</p>
     </div>
     <div id="contact">
       <contact-form />
@@ -27,36 +32,47 @@ import ContactForm from '@/components/ContactForm.vue'
 <style scoped>
 .about{
  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  gap: 0px 0px; 
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
   grid-template-areas: 
-    "title title title"
-    "photo main-text main-text"
-    "- contact contact"
+    "dev dev site site"
+    "dev dev site site"
+    ". contact contact ."
     ;
-  width: 80%;
+  width: 100%;
+  height: 90vh;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
-#text{
-  grid-area: main-text;
-  text-align: left;
+#site{
+  grid-area: site;
 }
 
-#title{
-  grid-area: title;
+#dev{
+  grid-area: dev;
 }
 
-img{
+/* img{
   grid-area: photo;
   justify-self: center;
   max-width: 75%;
   max-height: 75%;
   border: 3px solid #17252A;
   border-radius: 50%;
-}
+} */
 
 a{
   text-decoration: none;
+}
+
+p{
+  text-align: left;
+  margin: 1%;
+}
+
+.card{
+  border: gray solid 6px;
+  border-radius: 1rem;
 }
 
 #contact{

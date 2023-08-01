@@ -35,6 +35,7 @@ export default {
         .then((result) => {
             console.log('SUCCESS!', result.text);
             this.$refs.form.reset();
+            window.alert("Message Sent")
         }, (error) => {
             console.log('FAILED...', error.text);
         });
@@ -51,13 +52,13 @@ export default {
     width: 100%;
     text-align: left;
     align-items: center;
-    border: gray solid 3px;
+    border: gray solid 6px;
     border-radius: 1rem;
     padding: 5px;
 }
 
 input{
-    border: 1px solid #17252A;
+    border: 6px solid #17252A;
     border-radius: 1.5rem;
     background: #17252A;
     color: #DEF2F1;

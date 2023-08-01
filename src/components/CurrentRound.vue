@@ -82,25 +82,30 @@ export default {
 
     methods: {
         startRound(){
-            this.allCalls.push(this.call1);
-            this.allCalls.push(this.call2);
-            this.allCalls.push(this.call3);
-            this.allCalls.push(this.call4);
-            this.allCalls.push(this.call5);
-            this.allCalls.push(this.call6);
-            this.allCalls.push(this.call7);
-            this.$store.commit("UPDATE_CALLS", this.allCalls);
-            this.$store.commit("UPDATE_CURRENT_CARDS_OUT", this.cardsOut);
-            this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
-            this.$store.commit("TOGGLE_END_ROUND_FORM", true);
-            this.call1 = 0;
-            this.call2 = 0;
-            this.call3 = 0;
-            this.call4 = 0;
-            this.call5 = 0;
-            this.call6 = 0;
-            this.call7 = 0;
-            this.allCalls = [];
+            if(this.cardsOut != this.$store.state.handOrder[this.$store.state.currentRound]){
+                this.allCalls.push(this.call1);
+                this.allCalls.push(this.call2);
+                this.allCalls.push(this.call3);
+                this.allCalls.push(this.call4);
+                this.allCalls.push(this.call5);
+                this.allCalls.push(this.call6);
+                this.allCalls.push(this.call7);
+                this.$store.commit("UPDATE_CALLS", this.allCalls);
+                this.$store.commit("UPDATE_CURRENT_CARDS_OUT", this.cardsOut);
+                this.$store.commit("TOGGLE_CURRENT_ROUND_FORM", false);
+                this.$store.commit("TOGGLE_END_ROUND_FORM", true);
+                this.call1 = 0;
+                this.call2 = 0;
+                this.call3 = 0;
+                this.call4 = 0;
+                this.call5 = 0;
+                this.call6 = 0;
+                this.call7 = 0;
+                this.allCalls = [];
+            } else {
+                window.confirm("Invalid dealer call.")
+            }
+            
         },
 
         editScore(){

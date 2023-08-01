@@ -4,6 +4,7 @@
       <div id="title">
         <h1>Clubs Trump</h1>
         <h2>A Game of Skill & Chance</h2>
+        <p>*This site is a work in progress, please send any feedback or report bugs on the about page.</p>
       </div>
       <div id="hero">
         <img src="https://images.pexels.com/photos/279009/pexels-photo-279009.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="cards">
@@ -86,6 +87,6 @@ border-radius: 3%;
 
 img{
   border-radius: 3%;
-  max-width: 50%;
+  max-width: 45%;
 }
 </style>

@@ -157,6 +157,7 @@ button {
   width: 10%;
   align-self: center;
   margin: 10px;
+  
 }
 
 button:hover{

@@ -4,6 +4,7 @@
         <li> <router-link to="/">Home</router-link> </li>
         <li> <router-link to="/game">Game</router-link>  </li>
         <li> <router-link to="/rules"> Rules </router-link> </li>
+        <!-- <li> <router-link to="/test"> Test </router-link> </li> -->
         <li id="title">Clubs Trump</li>
         <li style="float:right"> <router-link to="/about">About</router-link> </li>
       </ul>

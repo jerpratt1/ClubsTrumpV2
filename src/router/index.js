@@ -4,6 +4,7 @@ import GameView from '../views/GameView.vue'
 import RulesView from '../views/RulesView.vue'
 import AboutView from '../views/AboutView.vue'
 import HomeView from '../views/HomeView.vue'
+import TestView from '../views/TestView.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const routes = [
     path: '/rules',
     name: 'rules',
     component: RulesView
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: TestView
   },
 ]
 
